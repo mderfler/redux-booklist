@@ -11,7 +11,7 @@ class BookList extends Component {
   renderList() {
     return this.props.books.map((book) => {
       return (
-        <div className="container-fluid">
+        <div key={book.id} className="container-fluid">
           <span
             key={book.title}
             onClick={() => this.props.selectBook(book)}
@@ -19,7 +19,7 @@ class BookList extends Component {
             {book.title}
             
           </span>
-          <span key={book.id} className="btn btn-danger btn-sm"
+          <span className="btn btn-danger btn-sm"
               onClick={() => {this.props.deleteBook(book.id)}}
             >Delete {book.title}</span>
         </div>
