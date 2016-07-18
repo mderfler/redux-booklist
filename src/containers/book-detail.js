@@ -30,6 +30,7 @@ class BookDetail extends Component {
         <form onSubmit={this.onFormSubmit.bind(this)}>
           <div >Title: {this.props.book.title}
            <input className="updateBox" type="text" value={this.state.newTitle}
+           placeholder="edit title"
             onChange={event => this.onInputChange(event.target.value)}
             />
           </div>
