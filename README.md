@@ -1,4 +1,4 @@
-# Redux Todo with React
+# Redux 'book-list' with React
 
 ###Getting Started###
 
