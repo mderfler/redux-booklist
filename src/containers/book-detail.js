@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { updateBook, fetchBooks } from '../actions/index';
+import { updateBook } from '../actions/index';
 import { bindActionCreators } from 'redux';
 
 class BookDetail extends Component {
@@ -30,7 +30,7 @@ class BookDetail extends Component {
         <form onSubmit={this.onFormSubmit.bind(this)}>
           <div >Title: {this.props.book.title}
            <input className="updateBox" type="text" value={this.state.newTitle}
-           placeholder="edit title"
+            placeholder="edit title"
             onChange={event => this.onInputChange(event.target.value)}
             />
           </div>
@@ -44,14 +44,12 @@ class BookDetail extends Component {
 
 function mapStateToProps(state) {
   return {
-    book: state.activeBook,
-    books: state.books.allBooks
+    book: state.activeBook
   };
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ updateBook: updateBook,
-      fetchBooks: fetchBooks
+    return bindActionCreators({ updateBook: updateBook
   }, dispatch);
 }
 
