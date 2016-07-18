@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchBooks, selectBook } from '../actions/index';
+import { fetchBooks, selectBook, deleteBook } from '../actions/index';
 import { bindActionCreators } from 'redux';
 
 class BookList extends Component {
@@ -11,21 +11,27 @@ class BookList extends Component {
   renderList() {
     return this.props.books.map((book) => {
       return (
-        <li
-          key={book.title}
-          onClick={() => this.props.selectBook(book)}
-          className="list-group-item">
-          {book.title}
-        </li>
+        <div className="container-fluid">
+          <span
+            key={book.title}
+            onClick={() => this.props.selectBook(book)}
+            className="list-group-item">
+            {book.title}
+            
+          </span>
+          <span key={book.id} className="btn btn-danger btn-sm"
+              onClick={() => {this.props.deleteBook(book.id)}}
+            >Delete {book.title}</span>
+        </div>
       );
     });
   }
 
   render() {
     return (
-      <ul className="list-group col-sm-4">
+      <div className="col-sm-4">
         {this.renderList()}
-      </ul>
+      </div>
     )
   }
 }
@@ -38,7 +44,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ selectBook: selectBook,
-    fetchBooks: fetchBooks
+    fetchBooks: fetchBooks, deleteBook: deleteBook
    }, dispatch);
 }
 
