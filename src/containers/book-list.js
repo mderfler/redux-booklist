@@ -29,7 +29,7 @@ class BookList extends Component {
 
   render() {
     return (
-      <div className="col-sm-4">
+      <div className="col-md-4">
         {this.renderList()}
       </div>
     )

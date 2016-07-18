@@ -21,12 +21,15 @@ class BookNew extends Component {
  
   render() {
     return (
+      <div className="col-md-4">
+      Or add a new book
       <form onSubmit={this.onFormSubmit.bind(this)}>
         <input type="text" placeholder="Title" value={this.state.title}
           onChange={event => this.onInputChange(event.target.value)}
          />
         <input type="submit" value="Create Book" />
       </form>
+      </div>
     );
   }
 }
